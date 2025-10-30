@@ -1,0 +1,478 @@
+/* src/components/ProfileViewModal.css */
+
+.profile-view-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.profile-view-modal {
+  background: white;
+  border-radius: 20px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: slideUp 0.3s ease;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.profile-view-modal.split-layout {
+  max-width: 1100px;
+  display: flex;
+  overflow: hidden;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+}
+
+.modal-close-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
+}
+
+/* Split Layout Sections */
+.modal-left-section {
+  flex: 0 0 55%;
+  display: flex;
+  flex-direction: column;
+  background: #000;
+  border-radius: 20px 0 0 20px;
+}
+
+.modal-right-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.modal-header-info {
+  padding: 30px 30px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.modal-header-info h2 {
+  margin: 0 0 8px 0;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.modal-header-info .modal-location {
+  margin: 0;
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Photo Section */
+.modal-photo-section {
+  position: relative;
+  width: 100%;
+  flex: 1;
+  min-height: 450px;
+  overflow: hidden;
+}
+
+.modal-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal-photo-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ff6b9d 0%, #c94b4b 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 5rem;
+  font-weight: bold;
+}
+
+/* Photo Navigation */
+.photo-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+  z-index: 5;
+}
+
+.photo-nav-btn.prev {
+  left: 15px;
+}
+
+.photo-nav-btn.next {
+  right: 15px;
+}
+
+.photo-nav-btn:hover {
+  background: rgba(0, 0, 0, 0.7);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* Photo Album Thumbnails */
+.photo-album {
+  display: flex;
+  gap: 10px;
+  padding: 15px;
+  background: #000;
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+.photo-album::-webkit-scrollbar {
+  height: 6px;
+}
+
+.photo-album::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.photo-album::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.photo-album::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.album-thumbnail {
+  flex: 0 0 80px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 3px solid transparent;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.album-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.album-thumbnail.active {
+  border-color: #ff6b9d;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 107, 157, 0.5);
+}
+
+.album-thumbnail:hover:not(.active) {
+  border-color: rgba(255, 107, 157, 0.5);
+  transform: scale(1.02);
+}
+
+/* Content Section */
+.modal-content {
+  padding: 25px 30px;
+  flex: 1;
+}
+
+.modal-section {
+  margin-bottom: 30px;
+}
+
+.modal-section:last-child {
+  margin-bottom: 0;
+}
+
+.modal-section h3 {
+  margin: 0 0 15px 0;
+  font-size: 1.3rem;
+  color: #333;
+  font-weight: 700;
+}
+
+.modal-bio {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #666;
+}
+
+/* Details Grid */
+.modal-details-grid {
+  display: grid;
+  gap: 15px;
+}
+
+.modal-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 12px;
+  transition: all 0.3s;
+}
+
+.modal-detail-item:hover {
+  background: #f0f2f5;
+  transform: translateX(5px);
+}
+
+.modal-detail-item .detail-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+}
+
+.detail-label {
+  font-size: 0.85rem;
+  color: #999;
+  margin-bottom: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detail-value {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Action Buttons */
+.modal-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 25px 30px;
+  border-top: 1px solid #eee;
+  background: #fafafa;
+}
+
+.modal-actions button {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+  background: white;
+  font-size: 0;
+}
+
+/* Dislike Button (Thumbs Down) */
+.modal-btn-dislike {
+  border: 3px solid #FF6B6B !important;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.25);
+}
+
+.modal-btn-dislike::after {
+  content: '👎';
+  font-size: 36px;
+  color: #FF6B6B;
+  font-weight: bold;
+}
+
+.modal-btn-dislike:hover {
+  background: #FFE5E5;
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+}
+
+/* Super Like Button (Star) */
+.modal-btn-super-like {
+  border: 3px solid #A75CF2 !important;
+  box-shadow: 0 4px 15px rgba(167, 92, 242, 0.25);
+}
+
+.modal-btn-super-like::after {
+  content: '★';
+  font-size: 36px;
+  color: #A75CF2;
+  font-weight: bold;
+}
+
+.modal-btn-super-like:hover {
+  background: #FFF5F7;
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(167, 92, 242, 0.4);
+}
+
+/* Like Button (Thumbs Up) */
+.modal-btn-like {
+  border: 3px solid #FF5A8A !important;
+  box-shadow: 0 6px 20px rgba(255, 90, 138, 0.3);
+}
+
+.modal-btn-like::after {
+  content: '👍';
+  font-size: 36px;
+  color: #FF5A8A;
+}
+
+.modal-btn-like:hover {
+  background: #FFF5F7;
+  transform: scale(1.1);
+  box-shadow: 0 8px 25px rgba(255, 90, 138, 0.5);
+}
+
+/* Scrollbar Styling */
+.profile-view-modal::-webkit-scrollbar,
+.modal-right-section::-webkit-scrollbar {
+  width: 8px;
+}
+
+.profile-view-modal::-webkit-scrollbar-track,
+.modal-right-section::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 0 20px 20px 0;
+}
+
+.profile-view-modal::-webkit-scrollbar-thumb,
+.modal-right-section::-webkit-scrollbar-thumb {
+  background: #ff6b9d;
+  border-radius: 10px;
+}
+
+.profile-view-modal::-webkit-scrollbar-thumb:hover,
+.modal-right-section::-webkit-scrollbar-thumb:hover {
+  background: #ff5a8d;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-view-modal {
+    max-width: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+
+  .profile-view-modal.split-layout {
+    flex-direction: column;
+  }
+
+  .modal-left-section {
+    flex: none;
+    border-radius: 0;
+  }
+
+  .modal-right-section {
+    flex: 1;
+  }
+
+  .modal-photo-section {
+    min-height: 350px;
+    height: 350px;
+  }
+
+  .modal-header-info {
+    padding: 20px 20px 15px;
+  }
+
+  .modal-header-info h2 {
+    font-size: 1.6rem;
+  }
+
+  .modal-content {
+    padding: 20px;
+  }
+
+  .modal-section h3 {
+    font-size: 1.1rem;
+  }
+
+  .modal-actions {
+    padding: 20px;
+  }
+
+  .modal-actions button {
+    width: 60px;
+    height: 60px;
+  }
+
+  .modal-btn-dislike::after,
+  .modal-btn-like::after {
+    font-size: 30px;
+  }
+
+  .modal-btn-super-like::after {
+    font-size: 30px;
+  }
+
+  .photo-nav-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+
+  .album-thumbnail {
+    flex: 0 0 70px;
+    height: 70px;
+  }
+
+  .photo-album {
+    padding: 12px;
+    gap: 8px;
+  }
+}

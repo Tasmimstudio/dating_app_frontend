@@ -1,0 +1,171 @@
+/* src/components/ProfileCompletenessIndicator.css */
+
+.profile-completeness {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  color: white;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  animation: fadeIn 0.3s ease;
+}
+
+.completeness-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.completeness-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.completeness-percentage {
+  font-size: 1.5rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 5px 15px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+}
+
+.completeness-progress-bar {
+  width: 100%;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 15px;
+  position: relative;
+}
+
+.completeness-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4caf50 0%, #8bc34a 100%);
+  border-radius: 10px;
+  transition: width 0.6s ease;
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.4);
+  position: relative;
+  overflow: hidden;
+}
+
+.completeness-progress-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.completeness-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.completeness-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  padding: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  transition: all 0.3s;
+}
+
+.completeness-item:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.completeness-item.completed {
+  opacity: 0.7;
+}
+
+.completeness-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.completeness-label {
+  flex: 1;
+}
+
+.completeness-suggestion {
+  background: rgba(255, 193, 7, 0.2);
+  border-left: 3px solid #ffc107;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  line-height: 1.5;
+}
+
+.completeness-suggestion strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+}
+
+.completeness-message {
+  background: rgba(76, 175, 80, 0.2);
+  border-left: 3px solid #4caf50;
+  padding: 12px;
+  border-radius: 8px;
+  margin-top: 12px;
+  font-size: 0.85rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-completeness {
+    padding: 15px;
+  }
+
+  .completeness-header h3 {
+    font-size: 1rem;
+  }
+
+  .completeness-percentage {
+    font-size: 1.3rem;
+    padding: 4px 12px;
+  }
+
+  .completeness-item {
+    font-size: 0.85rem;
+    padding: 6px;
+  }
+}

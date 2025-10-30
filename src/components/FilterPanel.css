@@ -1,0 +1,332 @@
+/* src/components/FilterPanel.css */
+
+.filter-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.filter-panel {
+  background: linear-gradient(135deg, #ffffff, #ffeef8);
+  border-radius: 20px;
+  padding: 30px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  border-bottom: 2px solid rgba(255, 105, 180, 0.3);
+  padding-bottom: 15px;
+}
+
+.filter-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  background: linear-gradient(135deg, #ff6b9d, #c44569);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #c44569;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+  background: rgba(255, 105, 180, 0.1);
+  transform: rotate(90deg);
+}
+
+.filter-content {
+  max-height: 60vh;
+  overflow-y: auto;
+  padding-right: 10px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+.filter-content::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.filter-section {
+  margin-bottom: 30px;
+}
+
+.filter-label {
+  display: block;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #c44569;
+  margin-bottom: 15px;
+}
+
+.age-sliders {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.slider-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.slider-group label {
+  font-size: 0.9rem;
+  color: #666;
+  font-weight: 500;
+}
+
+.age-slider,
+.distance-slider {
+  width: 100%;
+  height: 8px;
+  border-radius: 5px;
+  background: linear-gradient(to right, #ffc3e1, #ff6b9d);
+  outline: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.age-slider::-webkit-slider-thumb,
+.distance-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff6b9d, #c44569);
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(255, 105, 180, 0.4);
+  transition: all 0.3s ease;
+}
+
+.age-slider::-webkit-slider-thumb:hover,
+.distance-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.6);
+}
+
+.age-slider::-moz-range-thumb,
+.distance-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff6b9d, #c44569);
+  cursor: pointer;
+  box-shadow: 0 2px 10px rgba(255, 105, 180, 0.4);
+  border: none;
+}
+
+.distance-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: #999;
+  margin-top: 5px;
+}
+
+.gender-options {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.gender-btn {
+  padding: 12px 20px;
+  border: 2px solid #ffc3e1;
+  border-radius: 25px;
+  background: white;
+  color: #c44569;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.gender-btn:hover {
+  border-color: #ff6b9d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
+}
+
+.gender-btn.active {
+  background: linear-gradient(135deg, #ff6b9d, #c44569);
+  color: white;
+  border-color: #c44569;
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+}
+
+.filter-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+  padding-top: 20px;
+  border-top: 2px solid rgba(255, 105, 180, 0.3);
+}
+
+.clear-filters-btn,
+.apply-filters-btn {
+  flex: 1;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.clear-filters-btn {
+  background: white;
+  color: #c44569;
+  border: 2px solid #ffc3e1;
+}
+
+.clear-filters-btn:hover {
+  background: #ffeef8;
+  border-color: #ff6b9d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 105, 180, 0.3);
+}
+
+.apply-filters-btn {
+  background: linear-gradient(135deg, #ff6b9d, #c44569);
+  color: white;
+  box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+}
+
+.apply-filters-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 105, 180, 0.5);
+}
+
+/* Dark Mode Styles */
+body.dark-mode .filter-panel {
+  background: linear-gradient(135deg, #1e1e1e, #2a2a3e);
+}
+
+body.dark-mode .filter-header {
+  border-bottom-color: rgba(255, 105, 180, 0.5);
+}
+
+body.dark-mode .filter-header h2 {
+  background: linear-gradient(135deg, #ff85b3, #ff6b9d);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+body.dark-mode .close-btn {
+  color: #ff85b3;
+}
+
+body.dark-mode .close-btn:hover {
+  background: rgba(255, 105, 180, 0.2);
+}
+
+body.dark-mode .filter-label {
+  color: #ff85b3;
+}
+
+body.dark-mode .slider-group label {
+  color: #ccc;
+}
+
+body.dark-mode .gender-btn {
+  background: #2a2a3e;
+  border-color: rgba(255, 105, 180, 0.5);
+  color: #ff85b3;
+}
+
+body.dark-mode .gender-btn:hover {
+  background: #3a3a4e;
+  border-color: #ff85b3;
+}
+
+body.dark-mode .gender-btn.active {
+  background: linear-gradient(135deg, #ff85b3, #ff6b9d);
+  color: white;
+}
+
+body.dark-mode .clear-filters-btn {
+  background: #2a2a3e;
+  color: #ff85b3;
+  border-color: rgba(255, 105, 180, 0.5);
+}
+
+body.dark-mode .clear-filters-btn:hover {
+  background: #3a3a4e;
+  border-color: #ff85b3;
+}
+
+body.dark-mode .filter-actions {
+  border-top-color: rgba(255, 105, 180, 0.5);
+}
+
+body.dark-mode .distance-labels {
+  color: #999;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .filter-panel {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .filter-header h2 {
+    font-size: 1.4rem;
+  }
+
+  .gender-options {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-actions {
+    flex-direction: column;
+  }
+
+  .clear-filters-btn,
+  .apply-filters-btn {
+    width: 100%;
+  }
+}

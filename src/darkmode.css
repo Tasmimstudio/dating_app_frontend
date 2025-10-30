@@ -1,0 +1,301 @@
+/* Global Dark Mode Styles */
+
+html body.dark-mode {
+  background-color: #1a1a1a !important;
+  color: #e0e0e0 !important;
+}
+
+/* Dashboard Dark Mode */
+body.dark-mode .dashboard {
+  background: radial-gradient(circle at center, #2a3a4a 0%, #1a2a3a 100%) !important;
+}
+
+body.dark-mode .dashboard-header {
+  background: linear-gradient(90deg, #2a2a2c 0%, #6a1b5a 100%) !important;
+}
+
+body.dark-mode .user-card {
+  background: #2a2a2a !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important;
+}
+
+body.dark-mode .user-info {
+  background: #2a2a2a;
+}
+
+body.dark-mode .user-bio {
+  color: #b0b0b0;
+}
+
+body.dark-mode .detail-item {
+  color: #b0b0b0;
+}
+
+body.dark-mode .no-users {
+  color: #b0b0b0;
+}
+
+/* Profile Dark Mode */
+body.dark-mode .profile-page {
+  background: linear-gradient(135deg, #2a2a2a 0%, #3a3a4a 100%);
+}
+
+body.dark-mode .profile-nav-header {
+  background: linear-gradient(90deg, #2a2a2c 0%, #6a1b5a 100%);
+}
+
+body.dark-mode .profile-details-card {
+  background: #2a2a2a;
+  color: #e0e0e0;
+}
+
+body.dark-mode .form-value {
+  background: #1a1a1a;
+  color: #e0e0e0;
+}
+
+body.dark-mode .form-value.read-only {
+  background: #252525;
+  color: #999;
+}
+
+body.dark-mode .form-input,
+body.dark-mode .form-textarea {
+  background: #1a1a1a;
+  color: #e0e0e0;
+  border-color: #444;
+}
+
+body.dark-mode .form-group label {
+  color: #b0b0b0;
+}
+
+body.dark-mode .profile-name {
+  color: #e0e0e0;
+}
+
+/* Matches Dark Mode */
+body.dark-mode .matches-page {
+  background: radial-gradient(circle at center, #2a3040 0%, #3a2050 100%);
+}
+
+body.dark-mode .page-header {
+  background: linear-gradient(90deg, #3a3a4a 0%, #5a1a80 100%);
+}
+
+body.dark-mode .match-card {
+  background: #2a2a2a;
+}
+
+body.dark-mode .match-info h3 {
+  color: #e0e0e0;
+}
+
+body.dark-mode .match-bio {
+  color: #999;
+}
+
+body.dark-mode .no-matches h2 {
+  color: #b0b0b0;
+}
+
+body.dark-mode .no-matches p {
+  color: #777;
+}
+
+body.dark-mode .section-title,
+body.dark-mode .section-subtitle {
+  color: #e0e0e0;
+}
+
+/* Messages Dark Mode */
+body.dark-mode .chat-page {
+  background: linear-gradient(135deg, #2a2a2a 0%, #3a3a4a 100%);
+}
+
+body.dark-mode .chat-header {
+  background: linear-gradient(90deg, #2a2a2c 0%, #6a1b5a 100%);
+}
+
+body.dark-mode .message.received .message-bubble {
+  background: #3a3a3a;
+  color: #e0e0e0;
+}
+
+body.dark-mode .message-input-bar {
+  background: #2a2a2a;
+  border-top-color: #444;
+}
+
+body.dark-mode .message-input {
+  background: #1a1a1a;
+  color: #e0e0e0;
+  border-color: #444;
+}
+
+body.dark-mode .empty-chat-state {
+  color: #777;
+}
+
+/* MessagesList Dark Mode */
+body.dark-mode .messages-list-page {
+  background: linear-gradient(135deg, #2a2a2a 0%, #3a3a4a 100%);
+}
+
+body.dark-mode .messages-list-header {
+  background: linear-gradient(90deg, #2a2a2c 0%, #6a1b5a 100%);
+}
+
+body.dark-mode .conversations-list {
+  background: #2a2a2a;
+}
+
+body.dark-mode .conversation-item {
+  border-bottom-color: #3a3a3a;
+}
+
+body.dark-mode .conversation-item:hover {
+  background: #333;
+}
+
+body.dark-mode .conversation-item.unread {
+  background: #3a2a2a;
+}
+
+body.dark-mode .conversation-item.unread:hover {
+  background: #4a3a3a;
+}
+
+body.dark-mode .conversation-name {
+  color: #e0e0e0;
+}
+
+body.dark-mode .conversation-preview {
+  color: #999;
+}
+
+body.dark-mode .conversation-preview.unread {
+  color: #e0e0e0;
+}
+
+body.dark-mode .conversation-time {
+  color: #777;
+}
+
+body.dark-mode .empty-state {
+  background: #2a2a2a;
+}
+
+body.dark-mode .empty-state h2 {
+  color: #e0e0e0;
+}
+
+body.dark-mode .empty-state p {
+  color: #999;
+}
+
+/* Settings Dark Mode */
+body.dark-mode .settings-page {
+  background: linear-gradient(135deg, #2a2a2a 0%, #3a3a4a 100%) !important;
+}
+
+body.dark-mode .settings-header {
+  background: linear-gradient(90deg, #2a2a2c 0%, #6a1b5a 100%) !important;
+}
+
+body.dark-mode .settings-title {
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .settings-section {
+  background: #2a2a2a !important;
+}
+
+body.dark-mode .section-title {
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .settings-list {
+  background: #2a2a2a !important;
+}
+
+body.dark-mode .settings-item {
+  border-bottom-color: #3a3a3a !important;
+}
+
+body.dark-mode .settings-item:hover {
+  background: #333 !important;
+}
+
+body.dark-mode .item-label {
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .item-arrow {
+  color: #999;
+}
+
+body.dark-mode .range-value {
+  color: #ff6b9d;
+}
+
+body.dark-mode .version-number {
+  color: #999;
+}
+
+body.dark-mode .settings-item.danger .item-label {
+  color: #ff6b6b;
+}
+
+/* Auth Pages Dark Mode */
+body.dark-mode .auth-container {
+  background: linear-gradient(135deg, #3a3a5a 0%, #4a2a6a 100%);
+}
+
+body.dark-mode .auth-card {
+  background: #2a2a2a;
+}
+
+body.dark-mode .auth-card h1 {
+  color: #e0e0e0;
+}
+
+body.dark-mode .subtitle {
+  color: #999;
+}
+
+body.dark-mode .auth-footer {
+  color: #999;
+}
+
+/* Loading States */
+body.dark-mode .loading {
+  background: linear-gradient(135deg, #2a2a2a 0%, #3a3a4a 100%);
+  color: #e0e0e0;
+}
+
+/* Dropdown Menus */
+body.dark-mode .dropdown-menu {
+  background: #2a2a2a;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-mode .dropdown-menu button {
+  background: #2a2a2a !important;
+  color: #e0e0e0 !important;
+  border-bottom-color: #3a3a3a;
+}
+
+body.dark-mode .dropdown-menu button:hover {
+  background: #333 !important;
+}
+
+body.dark-mode .menu-logout,
+body.dark-mode .menu-block {
+  color: #ff6b6b !important;
+}
+
+body.dark-mode .menu-logout:hover,
+body.dark-mode .menu-block:hover {
+  background: #3a2a2a !important;
+}

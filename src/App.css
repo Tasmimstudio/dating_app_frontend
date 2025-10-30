@@ -1,0 +1,224 @@
+/* src/App.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* ========== DARK MODE STYLES ========== */
+
+/* Global Dark Mode */
+body.dark-mode {
+  background-color: #1a1a1a !important;
+  color: #e0e0e0 !important;
+}
+
+/* Dashboard Dark Mode */
+body.dark-mode .dashboard {
+  background: radial-gradient(circle at center, #2a3a4a 0%, #1a2a3a 100%) !important;
+}
+
+body.dark-mode .dashboard-header {
+  background: linear-gradient(90deg, #2a2a2c 0%, #6a1b5a 100%) !important;
+}
+
+body.dark-mode .user-card {
+  background: #2a2a2a !important;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5) !important;
+}
+
+body.dark-mode .user-info {
+  background: #2a2a2a !important;
+}
+
+body.dark-mode .user-bio {
+  color: #b0b0b0 !important;
+}
+
+body.dark-mode .detail-item {
+  color: #b0b0b0 !important;
+}
+
+body.dark-mode .no-users {
+  color: #b0b0b0 !important;
+}
+
+/* Profile Dark Mode */
+body.dark-mode .profile-page {
+  background: linear-gradient(135deg, #2a2a2a 0%, #3a3a4a 100%) !important;
+}
+
+body.dark-mode .profile-nav-header {
+  background: linear-gradient(90deg, #2a2a2c 0%, #6a1b5a 100%) !important;
+}
+
+body.dark-mode .profile-details-card {
+  background: #2a2a2a !important;
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .form-value {
+  background: #1a1a1a !important;
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .form-value.read-only {
+  background: #252525 !important;
+  color: #999 !important;
+}
+
+body.dark-mode .form-input,
+body.dark-mode .form-textarea {
+  background: #1a1a1a !important;
+  color: #e0e0e0 !important;
+  border-color: #444 !important;
+}
+
+body.dark-mode .form-group label {
+  color: #b0b0b0 !important;
+}
+
+body.dark-mode .profile-name {
+  color: #e0e0e0 !important;
+}
+
+/* Settings Dark Mode */
+body.dark-mode .settings-page {
+  background: linear-gradient(135deg, #2a2a2a 0%, #3a3a4a 100%) !important;
+}
+
+body.dark-mode .settings-header {
+  background: linear-gradient(90deg, #2a2a2c 0%, #6a1b5a 100%) !important;
+}
+
+body.dark-mode .settings-title {
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .settings-section {
+  background: #2a2a2a !important;
+}
+
+body.dark-mode .section-title {
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .settings-list {
+  background: #2a2a2a !important;
+}
+
+body.dark-mode .settings-item {
+  border-bottom-color: #3a3a3a !important;
+}
+
+body.dark-mode .settings-item:hover {
+  background: #333 !important;
+}
+
+body.dark-mode .item-label {
+  color: #e0e0e0 !important;
+}
+
+/* Matches Dark Mode */
+body.dark-mode .matches-page {
+  background: radial-gradient(circle at center, #2a3040 0%, #3a2050 100%) !important;
+}
+
+body.dark-mode .page-header {
+  background: linear-gradient(90deg, #3a3a4a 0%, #5a1a80 100%) !important;
+}
+
+body.dark-mode .match-card {
+  background: #2a2a2a !important;
+}
+
+body.dark-mode .match-info h3 {
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .match-bio {
+  color: #999 !important;
+}
+
+/* Messages Dark Mode */
+body.dark-mode .chat-page {
+  background: linear-gradient(135deg, #2a2a2a 0%, #3a3a4a 100%) !important;
+}
+
+body.dark-mode .chat-header {
+  background: linear-gradient(90deg, #2a2a2c 0%, #6a1b5a 100%) !important;
+}
+
+body.dark-mode .message.received .message-bubble {
+  background: #3a3a3a !important;
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .message-input-bar {
+  background: #2a2a2a !important;
+  border-top-color: #444 !important;
+}
+
+body.dark-mode .message-input {
+  background: #1a1a1a !important;
+  color: #e0e0e0 !important;
+  border-color: #444 !important;
+}
+
+/* MessagesList Dark Mode */
+body.dark-mode .messages-list-page {
+  background: linear-gradient(135deg, #2a2a2a 0%, #3a3a4a 100%) !important;
+}
+
+body.dark-mode .messages-list-header {
+  background: linear-gradient(90deg, #2a2a2c 0%, #6a1b5a 100%) !important;
+}
+
+body.dark-mode .conversations-list {
+  background: #2a2a2a !important;
+}
+
+body.dark-mode .conversation-item {
+  border-bottom-color: #3a3a3a !important;
+}
+
+body.dark-mode .conversation-item:hover {
+  background: #333 !important;
+}
+
+body.dark-mode .conversation-name {
+  color: #e0e0e0 !important;
+}
+
+body.dark-mode .conversation-preview {
+  color: #999 !important;
+}
+
+/* Dropdown Menus */
+body.dark-mode .dropdown-menu {
+  background: #2a2a2a !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6) !important;
+}
+
+body.dark-mode .dropdown-menu button {
+  background: #2a2a2a !important;
+  color: #e0e0e0 !important;
+  border-bottom-color: #3a3a3a !important;
+}
+
+body.dark-mode .dropdown-menu button:hover {
+  background: #333 !important;
+}

@@ -1,0 +1,371 @@
+/* src/pages/Settings.css */
+
+.settings-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding-bottom: 40px;
+}
+
+.settings-header {
+  background: linear-gradient(90deg, #f6f6f8 0%, #c937bb 100%);
+  padding: 20px 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.home-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 0;
+}
+
+.home-btn:hover {
+  background: white;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+.back-btn {
+  padding: 8px 16px;
+  border: none;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s;
+  backdrop-filter: blur(10px);
+}
+
+.back-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateX(-3px);
+}
+
+.settings-title {
+  margin: 0;
+  font-size: 1.8rem;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-weight: 700;
+}
+
+.settings-content {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+/* Settings Section */
+.settings-section {
+  margin-bottom: 30px;
+}
+
+.section-title {
+  margin: 0 0 15px 0;
+  font-size: 1.3rem;
+  color: #555;
+  font-weight: 700;
+  padding: 0 5px;
+}
+
+.settings-list {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Settings Item */
+.settings-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 20px;
+  border-bottom: 1px solid #f0f0f0;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.settings-item:last-child {
+  border-bottom: none;
+}
+
+.settings-item:hover {
+  background: #f8f9fa;
+}
+
+.settings-item.danger {
+  color: #dc3545;
+}
+
+.settings-item.danger:hover {
+  background: #fff5f5;
+}
+
+.item-content {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.item-icon {
+  font-size: 1.5rem;
+}
+
+.item-label {
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.settings-item.danger .item-label {
+  color: #dc3545;
+}
+
+.item-arrow {
+  font-size: 1.5rem;
+  color: #ccc;
+}
+
+.version-number {
+  font-size: 0.9rem;
+  color: #999;
+}
+
+/* Full Width Settings Items */
+.settings-item-full {
+  padding: 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.settings-item-full:last-child {
+  border-bottom: none;
+}
+
+.item-label-full {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.range-value {
+  font-size: 1rem;
+  color: #ff6b9d;
+  font-weight: 600;
+}
+
+/* Sliders */
+.slider-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.slider {
+  width: 100%;
+  height: 6px;
+  border-radius: 5px;
+  background: #e0e0e0;
+  outline: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff6b9d 0%, #c94b4b 100%);
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(255, 107, 157, 0.4);
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff6b9d 0%, #c94b4b 100%);
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 8px rgba(255, 107, 157, 0.4);
+}
+
+/* Checkbox Group */
+.checkbox-group {
+  display: flex;
+  gap: 25px;
+  padding: 10px 0;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+}
+
+.checkbox-label input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #ff6b9d;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 28px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+.toggle-switch input:checked + .toggle-slider {
+  background: linear-gradient(135deg, #ff6b9d 0%, #c94b4b 100%);
+}
+
+.toggle-switch input:checked + .toggle-slider:before {
+  transform: translateX(24px);
+}
+
+/* Save Preferences Button */
+.save-preferences-btn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 15px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #ff6b9d 0%, #c94b4b 100%);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 12px rgba(255, 107, 157, 0.4);
+}
+
+.save-preferences-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(255, 107, 157, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .settings-header {
+    padding: 15px 20px;
+  }
+
+  .back-btn {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+
+  .settings-title {
+    font-size: 1.4rem;
+  }
+
+  .settings-content {
+    margin: 20px auto;
+    padding: 0 15px;
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+  }
+
+  .settings-item {
+    padding: 15px 18px;
+  }
+
+  .item-icon {
+    font-size: 1.3rem;
+  }
+
+  .item-label {
+    font-size: 0.95rem;
+  }
+
+  .settings-item-full {
+    padding: 18px;
+  }
+
+  .checkbox-group {
+    gap: 20px;
+  }
+
+  .toggle-switch {
+    width: 48px;
+    height: 26px;
+  }
+
+  .toggle-slider:before {
+    height: 18px;
+    width: 18px;
+  }
+
+  .toggle-switch input:checked + .toggle-slider:before {
+    transform: translateX(22px);
+  }
+}

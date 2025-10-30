@@ -1,0 +1,307 @@
+/* src/pages/BlockedUsers.css */
+
+.blocked-users-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding-bottom: 40px;
+}
+
+.page-header {
+  background: linear-gradient(90deg, #f6f6f8 0%, #c937bb 100%);
+  padding: 20px 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.header-left h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  font-weight: 700;
+}
+
+.back-btn {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 0;
+}
+
+.back-btn:hover {
+  background: white;
+  color: #c937bb;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.3);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.blocked-count {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 20px;
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 100px 20px;
+  color: #666;
+}
+
+.loading-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(201, 55, 187, 0.1);
+  border-top-color: #c937bb;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 20px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.blocked-users-container {
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.blocked-users-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.blocked-user-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.blocked-user-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(201, 55, 187, 0.2);
+}
+
+.user-avatar {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: linear-gradient(135deg, #c937bb, #a02ba6);
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.user-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.user-name {
+  margin: 0 0 8px 0;
+  font-size: 1.3rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.user-bio {
+  margin: 5px 0;
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.4;
+}
+
+.blocked-date {
+  margin: 5px 0;
+  font-size: 0.85rem;
+  color: #999;
+  font-style: italic;
+}
+
+.block-reason {
+  margin: 10px 0 0 0;
+  padding: 10px;
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  color: #856404;
+}
+
+.unblock-btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.unblock-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+}
+
+.empty-state {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.empty-icon {
+  font-size: 5rem;
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.empty-state h2 {
+  color: #666;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.empty-state p {
+  color: #999;
+  font-size: 1.1rem;
+  margin-bottom: 30px;
+}
+
+.btn-primary {
+  padding: 14px 32px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(135deg, #c937bb, #a02ba6);
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(201, 55, 187, 0.4);
+}
+
+/* Dark Mode */
+body.dark-mode .blocked-users-page {
+  background: linear-gradient(135deg, #1a1a2e, #0f3460);
+}
+
+body.dark-mode .page-header {
+  background: linear-gradient(90deg, #1a1a2e, #c937bb);
+}
+
+body.dark-mode .blocked-user-card {
+  background: #2a2a3e;
+  border: 1px solid rgba(201, 55, 187, 0.2);
+}
+
+body.dark-mode .blocked-user-card:hover {
+  background: #3a3a4e;
+  border-color: #c937bb;
+}
+
+body.dark-mode .user-name {
+  color: #fff;
+}
+
+body.dark-mode .user-bio {
+  color: #bbb;
+}
+
+body.dark-mode .blocked-date {
+  color: #888;
+}
+
+body.dark-mode .empty-state h2 {
+  color: #ccc;
+}
+
+body.dark-mode .empty-state p {
+  color: #999;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .page-header {
+    padding: 15px 20px;
+  }
+
+  .header-left h1 {
+    font-size: 1.4rem;
+  }
+
+  .blocked-user-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .user-info {
+    text-align: center;
+  }
+
+  .unblock-btn {
+    width: 100%;
+  }
+}
