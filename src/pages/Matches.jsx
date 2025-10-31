@@ -81,18 +81,37 @@ function Matches() {
 
       // Fetch photos, last message, and unread count for each match
       const matchesWithDetails = await Promise.all(
-        response.data.map(async (user) => {
+        response.data.map(async (match) => {
           try {
-            // Fetch photos
-            const photoResponse = await api.get(`/photos/user/${user.user_id}`);
-            const photos = photoResponse.data.photos || [];
-            const primaryPhoto = photos.find(p => p.is_primary);
+            // Extract user_id from match data (backend returns other_user_id or other_user object)
+            const otherUserId = match.other_user_id || match.other_user?.user_id;
+
+            if (!otherUserId) {
+              console.error('No user_id found in match:', match);
+              return null;
+            }
+
+            // Use other_user data if available, otherwise fetch
+            let userData = match.other_user || {};
+            let primaryPhoto = userData.primary_photo || match.other_user?.primary_photo;
+
+            // Fetch photos if not in match data
+            if (!primaryPhoto) {
+              try {
+                const photoResponse = await api.get(`/photos/user/${otherUserId}`);
+                const photos = photoResponse.data.photos || [];
+                const photo = photos.find(p => p.is_primary);
+                primaryPhoto = photo?.url || null;
+              } catch (err) {
+                console.error('Error fetching photos:', err);
+              }
+            }
 
             // Fetch last message between users
             let lastMessage = null;
             let lastMessageTime = null;
             try {
-              const messagesResponse = await api.get(`/messages/${userId}/${user.user_id}?limit=1`);
+              const messagesResponse = await api.get(`/messages/${userId}/${otherUserId}?limit=1`);
               const messages = messagesResponse.data;
               if (messages && messages.length > 0) {
                 lastMessage = messages[messages.length - 1].content;
@@ -106,35 +125,44 @@ function Matches() {
             let unreadCount = 0;
             try {
               const unreadResponse = await api.get(`/messages/unread/${userId}`);
-              // This gets total unread, we'd need to filter by sender
-              // For now, we'll show total unread
               unreadCount = unreadResponse.data.unread_count || 0;
             } catch (err) {
               console.log('No unread messages');
             }
 
             return {
-              ...user,
-              photo: primaryPhoto ? primaryPhoto.url : null,
+              user_id: otherUserId,
+              name: userData.name || match.other_user_name,
+              age: userData.age,
+              bio: userData.bio,
+              gender: userData.gender,
+              city: userData.city,
+              occupation: userData.occupation,
+              photo: primaryPhoto,
               lastMessage,
               lastMessageTime,
-              unreadCount
+              unreadCount,
+              matched_at: match.matched_at,
+              match_id: match.match_id
             };
           } catch (error) {
             console.error('Error fetching match details:', error);
-            return { ...user, photo: null, lastMessage: null, unreadCount: 0 };
+            return null;
           }
         })
       );
 
+      // Filter out null values
+      const validMatches = matchesWithDetails.filter(m => m !== null);
+
       // Sort by last message time (most recent first)
-      matchesWithDetails.sort((a, b) => {
+      validMatches.sort((a, b) => {
         const timeA = a.lastMessageTime || a.matched_at;
         const timeB = b.lastMessageTime || b.matched_at;
         return new Date(timeB) - new Date(timeA);
       });
 
-      setMatches(matchesWithDetails);
+      setMatches(validMatches);
     } catch (error) {
       console.error('Error fetching matches:', error);
     }
