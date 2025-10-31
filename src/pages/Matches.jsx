@@ -79,7 +79,7 @@ function Matches() {
       const response = await api.get(`/matches/user/${userId}`);
       console.log('Matches response:', response.data);
 
-      // Fetch photos, last message, and unread count for each match
+      // Fetch photos and unread count for each match
       const matchesWithDetails = await Promise.all(
         response.data.map(async (match) => {
           try {
@@ -107,20 +107,6 @@ function Matches() {
               }
             }
 
-            // Fetch last message between users
-            let lastMessage = null;
-            let lastMessageTime = null;
-            try {
-              const messagesResponse = await api.get(`/messages/${userId}/${otherUserId}?limit=1`);
-              const messages = messagesResponse.data;
-              if (messages && messages.length > 0) {
-                lastMessage = messages[messages.length - 1].content;
-                lastMessageTime = messages[messages.length - 1].sent_at;
-              }
-            } catch (err) {
-              console.log('No messages yet');
-            }
-
             // Fetch unread count
             let unreadCount = 0;
             try {
@@ -139,8 +125,8 @@ function Matches() {
               city: userData.city,
               occupation: userData.occupation,
               photo: primaryPhoto,
-              lastMessage,
-              lastMessageTime,
+              lastMessage: match.last_message,
+              lastMessageTime: match.last_message_time,
               unreadCount,
               matched_at: match.matched_at,
               match_id: match.match_id
