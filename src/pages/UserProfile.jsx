@@ -63,12 +63,31 @@ function UserProfile() {
 
       if (response.data.is_match) {
         setIsMatched(true);
-        alert('It\'s a Match! 🎉');
+        alert('It\'s a Match! 🎉\n\nYou can now message each other!');
       } else {
-        navigate(-1);
+        // Show feedback based on action
+        if (action === 'like') {
+          alert('❤️ Liked! If they like you back, you\'ll match!');
+        } else if (action === 'super_like') {
+          alert('⭐ Super Liked! They\'ll know you really like them!');
+        } else if (action === 'dislike') {
+          alert('👋 Passed on this profile.');
+        }
+
+        // Navigate back after a short delay
+        setTimeout(() => navigate(-1), 500);
       }
     } catch (error) {
       console.error('Error swiping:', error);
+
+      // Handle specific errors
+      if (error.response?.status === 400) {
+        alert('You\'ve already swiped on this user!');
+      } else if (error.response?.status === 404) {
+        alert('User not found or no longer available.');
+      } else {
+        alert('Failed to process your action. Please try again.');
+      }
     }
   };
 
