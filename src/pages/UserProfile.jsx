@@ -137,7 +137,9 @@ function UserProfile() {
         <div className="photo-carousel">
           {displayPhoto ? (
             <img
-              src={`http://localhost:8001${displayPhoto}`}
+              src={displayPhoto.startsWith('http')
+                ? displayPhoto
+                : `${import.meta.env.VITE_API_URL || 'https://dating-appbckend.onrender.com'}${displayPhoto}`}
               alt={user.name}
               className="profile-main-photo"
             />
@@ -234,7 +236,9 @@ function UserProfile() {
                     onClick={() => setCurrentPhotoIndex(index)}
                   >
                     <img
-                      src={`http://localhost:8001${photo.url}`}
+                      src={photo.url.startsWith('http')
+                        ? photo.url
+                        : `${import.meta.env.VITE_API_URL || 'https://dating-appbckend.onrender.com'}${photo.url}`}
                       alt={`${user.name} ${index + 1}`}
                     />
                   </div>
