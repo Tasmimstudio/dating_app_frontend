@@ -1,8 +1,11 @@
 // src/api/axios.js
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:8002';  // ✅ Backend running on port 8002
+// ❌ Old (local)
+// const API_BASE_URL = 'http://localhost:8002';
 
+// ✅ New (Render deployed backend)
+const API_BASE_URL = 'https://dating-appbckend.onrender.com';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
@@ -20,9 +23,7 @@ api.interceptors.request.use(
     }
     return config;
   },
-  (error) => {
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error)
 );
 
 // Response interceptor for error handling
