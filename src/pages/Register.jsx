@@ -81,12 +81,11 @@ function Register() {
       // POST request to FastAPI backend
       const response = await api.post('/auth/register', payload);
 
-      // Store token and user data
-      localStorage.setItem('token', response.data.access_token);
-      localStorage.setItem('user', JSON.stringify(response.data.user));
+      // Show success message
+      alert('Registration successful! 🎉\n\nYou can now login with your credentials.');
 
-      // Redirect to interests selection page
-      navigate('/interests');
+      // Redirect to login page (user must login manually)
+      navigate('/login');
     } catch (err) {
       console.error(err);
 
